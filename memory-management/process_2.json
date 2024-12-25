@@ -1,0 +1,40 @@
+{
+    "unit": "MB",
+    "processes": [
+        {
+            "id": 0,
+            "arrival_time": 0,
+            "size": 1
+        },
+        {
+            "id": 1,
+            "arrival_time": 3,
+            "size": 256
+        },
+        {
+            "id": 2,
+            "arrival_time": 5,
+            "size": 88
+        },
+        {
+            "id": 3,
+            "arrival_time": 10,
+            "size": 145
+        },
+        {
+            "id": 4,
+            "arrival_time": 11,
+            "size": 67
+        },
+        {
+            "id": 5,
+            "arrival_time": 18,
+            "size": 78
+        },
+        {
+            "id": 5,
+            "arrival_time": 20,
+            "size": 512
+        }
+    ]
+}

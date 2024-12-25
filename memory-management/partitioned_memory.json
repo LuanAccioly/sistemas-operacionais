@@ -1,0 +1,24 @@
+{
+    "unit": "MB",
+    "partitions": [
+        {
+            "size": 128,
+            "os": true
+        },
+        {
+            "size": 128
+        },
+        {
+            "size": 64
+        },
+        {
+            "size": 64
+        },
+        {
+            "size": 64
+        },
+        {
+            "size": 64
+        }
+    ]
+}

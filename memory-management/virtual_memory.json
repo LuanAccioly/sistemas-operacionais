@@ -1,0 +1,7 @@
+{
+    "unit": "MB",
+    "size": 32,
+    "number_of_pages": 16,
+    "number_of_frames": 8,
+    "os_reserved_frames": 4
+}
