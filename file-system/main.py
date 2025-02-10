@@ -7,7 +7,7 @@ def main():
     fs = FileSystem(total_blocks, block_size)
 
     while True:
-        command = input(f"{fs.current_directory.path or '/'} $ ").strip().split()
+        command = input(f"{fs.current_directory.get_path()} $ ").strip().split()
         if not command:
             continue
 
