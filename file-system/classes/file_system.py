@@ -1,3 +1,4 @@
+import math
 import os
 import random
 
@@ -9,15 +10,13 @@ class FileSystem:
     def __init__(self, total_blocks, block_size):
         self.total_blocks = total_blocks
         self.block_size = block_size
-        self.memory = [
-            {} for _ in range(total_blocks)
-        ]  # Cada bloco pode armazenar múltiplos arquivos
-        self.block_links = [-1] * total_blocks  # Lista encadeada dos blocos
+        self.memory = [{} for _ in range(total_blocks)]
+        self.block_links = [-1] * total_blocks
         self.root = Directory("/")
         self.current_directory = self.root
 
     def allocate_blocks(self, file):
-        required_blocks = (file.size + self.block_size - 1) // self.block_size
+        required_blocks = math.ceil(file.size / self.block_size)
         free_blocks = [i for i, block in enumerate(self.memory) if not block]
 
         if len(free_blocks) < required_blocks:
@@ -28,7 +27,7 @@ class FileSystem:
         allocated.sort()
 
         for i in range(len(allocated) - 1):
-            self.block_links[allocated[i]] = allocated[i + 1]  # Encadeamento
+            self.block_links[allocated[i]] = allocated[i + 1]
 
         for block in allocated:
             self.memory[block][file.name] = min(self.block_size, file.size)
@@ -58,7 +57,7 @@ class FileSystem:
         file = self.current_directory.files[name]
         for block in file.blocks:
             del self.memory[block][name]
-            self.block_links[block] = -1  # Removendo encadeamento
+            self.block_links[block] = -1
 
         del self.current_directory.files[name]
         print(f"Arquivo '{name}' removido.")
