@@ -11,7 +11,6 @@ def xor_encrypt(password):
     return base64.b64encode(s3.encode()).decode()
 
 def xor_decrypt(encoded_password, original_length):
-    decoded = base64.b64decode(encoded_password).decode()
     for candidate in itertools.product(string.printable, repeat=original_length):
         candidate = ''.join(candidate)
         if xor_encrypt(candidate) == encoded_password:
