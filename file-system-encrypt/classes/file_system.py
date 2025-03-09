@@ -88,8 +88,8 @@ class FileSystem:
         print(f"Diretório '{name}' removido.")
 
     def list_directory(self):
-        print("Arquivos:", list(self.current_directory.files.blocks()))
-        print("Diretórios:", list(self.current_directory.subdirectories.blocks()))
+        print("Arquivos:", list(self.current_directory.files.keys()))
+        print("Diretórios:", list(self.current_directory.subdirectories.keys()))
 
     def show_allocation(self):
         print("Estado da memória:")
